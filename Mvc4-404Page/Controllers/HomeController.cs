@@ -6,25 +6,21 @@ using System.Web.Mvc;
 
 namespace Mvc4_404Page.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : MyController
     {
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+        public ActionResult Detail()
+        {            
+            return this.InvokeHttp404(HttpContext);
         }
 
-        public ActionResult Contact()
+        public ActionResult WrongId()
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return HttpNotFound();
         }
     }
 }
